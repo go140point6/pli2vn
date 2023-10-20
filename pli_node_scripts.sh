@@ -255,7 +255,7 @@ FUNC_NODE_DEPLOY(){
     GO_TAR="go1.20.6.linux-amd64.tar.gz"
     if [ ! -e $GO_TAR ]; then
         echo -e "${GREEN}INFO :: Downloading GO tar file...${NC}"
-        wget https://dl.google.com/go/go1.20.6.linux-amd64.tar.gz
+        wget --inet4-only https://dl.google.com/go/go1.20.6.linux-amd64.tar.gz
     fi
     
     echo -e "${GREEN}INFO :: GO tar file already exists...${NC}"
@@ -265,7 +265,7 @@ FUNC_NODE_DEPLOY(){
       echo
       echo  -e "${RED}## ERROR :: Go package download encoutered issues${NC}"
       echo  -e "${RED}## ERROR :: re-trying download once more...${NC}"
-      wget https://dl.google.com/go/go1.20.6.linux-amd64.tar.gz
+      wget --inet4-only https://dl.google.com/go/go1.20.6.linux-amd64.tar.gz
       sleep 1s
       if [ $? != 0 ]; then
         echo -e "${RED}## WGET of Go package failed... exiting${NC}"
