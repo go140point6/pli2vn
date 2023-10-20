@@ -561,7 +561,13 @@ set API_PASS [lindex $argv 1]
 spawn ./NodeStartPM2.sh
 
 expect "*Enter API Email?" { send -- "$API_EMAIL\r" }
-expect "*Enter API Password?" { send -- "$API_PASS\r" }
+expect "*Enter API Password?" {
+    if {[string match {*\$*} "$API_PASS"]} {
+        # Escape the $ sign
+        set API_PASS [string map {\$ "\\$"} "$API_PASS"]
+    }
+    send -- "$API_PASS\r"
+}
 expect eof
 exit 0
 EOF
