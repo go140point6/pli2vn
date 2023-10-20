@@ -577,6 +577,8 @@ EOF
 
     echo $API_EMAIL
     echo $API_PASS
+    cat expect.sh
+    echo ./expect.sh "$API_EMAIL" "$API_PASS"
     ./expect.sh "$API_EMAIL" "$API_PASS"
 
     sleep 2s
