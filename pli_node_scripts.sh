@@ -549,7 +549,7 @@ EOF
     sleep 1s
 
 
-    cat <<EOF > expect.sh
+    cat <<'EOF' > expect.sh
 #!/usr/bin/expect -f
 log_user 0
 set timeout 15
