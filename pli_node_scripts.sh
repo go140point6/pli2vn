@@ -218,7 +218,7 @@ FUNC_NODE_DEPLOY(){
 
     cd ~/
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-    wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
+    wget -qO- --inet4-only https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
 
     sudo apt install -y postgresql postgresql-client
     sudo systemctl start postgresql.service
@@ -578,6 +578,7 @@ EOF
     ./expect.sh $API_EMAIL $API_PASS 
 
     sleep 2s
+    read -p "Press any key to resume ..."
 
     echo -e "${GREEN}## Install: PM2 RUN $BASH_FILE2 ...${NC}"
     pm2 start $BASH_FILE2
