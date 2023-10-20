@@ -157,7 +157,7 @@ FUNC_PASSWD_CHECKS(){
 
 
 
-    if ([ -z '$API_PASS' ] || [ '$API_PASS' == "$SAMPLE_API_PASS" ]); then
+    if ([ -z "$API_PASS" ] || [ "$API_PASS" == "$SAMPLE_API_PASS" ]); then
 
     echo 
     echo -e "${GREEN}     VARIABLE 'API_PASS' NOT UPDATED MANUALLY - AUTO GENERATING VALUE NOW${NC}"
