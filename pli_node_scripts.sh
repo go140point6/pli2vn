@@ -418,7 +418,7 @@ FUNC_NODE_DEPLOY(){
     echo -e "${GREEN}#########################################################################${NC}"
     echo -e "${GREEN}## Install: GoPlugin V2 dependancies...${NC}"
 
-    npm install -g pnpm 
+    npm install -g pnpm@8 
     if [ $? != 0 ]; then
       echo
       echo  -e "${RED}## ERROR :: PNPM dependancies install encoutered issues${NC}"
